@@ -1,0 +1,1 @@
+process.env.FANTASY_GAME_HOST = 'https://football-stag.superfantasy.com';
