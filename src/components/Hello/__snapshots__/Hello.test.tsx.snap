@@ -2,8 +2,10 @@
 
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <div>
+  <h1
+    id="title"
+  >
     Khea
-  </div>
+  </h1>
 </DocumentFragment>
 `;
