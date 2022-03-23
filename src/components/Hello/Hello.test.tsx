@@ -3,15 +3,20 @@ import Hello from "./index";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-test("snapshot", () => {
-  const {asFragment} = render(<Hello name={"Khea"} />);
+test("Component contains premier badge", () => {
+  const {asFragment} = render(<Hello name={"Khea"} isPremier={true} />);
+
+  expect(screen.getByRole("heading")).toBeVisible()
+  expect(screen.getByTestId("premier-badge")).toBeVisible()
 
   expect(asFragment()).toMatchSnapshot();
-})
+});
 
-test("Hello Component", () => {
-  render(<Hello name={"Khea"} />);
+test("Component not contain premier badge", () => {
+  const {asFragment} = render(<Hello name={"Khea"} isPremier={false} />);
 
-  console.error(screen.queryByRole("heading"))
-  expect(screen.queryByRole("heading")).toBeInTheDocument()
+  expect(screen.getByRole("heading")).toBeVisible()
+  expect(screen.queryByTestId("premier-badge")).not.toBeInTheDocument()
+
+  expect(asFragment()).toMatchSnapshot();
 });

@@ -1,6 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot 1`] = `
+exports[`Component contains premier badge 1`] = `
+<DocumentFragment>
+  <h1
+    id="title"
+  >
+    Khea
+  </h1>
+  <span
+    data-testid="premier-badge"
+  >
+    Premier
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Component not contain premier badge 1`] = `
 <DocumentFragment>
   <h1
     id="title"
