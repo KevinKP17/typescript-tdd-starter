@@ -2,7 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 import { deattribute } from 'kitsu-core'
 import Premiericon from "./premierBadge.svg"
+import 'unfetch/polyfill'
 // import fetch from "node-fetch";
+// globalThis.fetch = fetch
 
 function App() {
 
@@ -29,10 +31,9 @@ function App() {
     .catch(err => console.error(err));
   }, [])
 
-  if (isLoading) return null;
-
-
-// UI
+  if (isLoading) return <p className='loading' data-testid = "loading">LOADING</p>;
+  
+  // UI
   return (
     <div className="App">
       <div className='title-content'>
@@ -47,7 +48,7 @@ function App() {
            {content.attributes.is_premier ? (
             <div key={`image-${idx}`} className="image-carousel">
               <div className="premier-badge">
-                <img  src={Premiericon} alt='premier-badge' />
+                <img  src={Premiericon} alt='premier-badge'/>
              </div>
             </div>
           ) : null}
