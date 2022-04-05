@@ -1,8 +1,8 @@
-const landscapeData = {
+const watchData = {
     "data": {
         "type": "section",
         "id": "2098",
-        "z": {
+        "attributes": {
             "title": "Lanjut Nonton, Yuk!",
             "variation": "landscape_horizontal",
             "data_source": "continue_watching",
@@ -166,3 +166,5 @@ const landscapeData = {
         }
     ]
 }
+
+export default watchData;

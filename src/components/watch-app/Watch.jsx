@@ -19,6 +19,7 @@ function Watch() {
         })
         .then(response => response.json())
         .then(response => {
+            console.error(response);
             const parsedData = deattribute(response)
             setData(parsedData)
             setIsLoading(false)
@@ -26,9 +27,9 @@ function Watch() {
         .catch(err => console.error(err))
     },[])
  
-    if(isLoading) return null;
+    if(isLoading) return <p className='loading' data-testid = "loading">LOADING</p>;
  
-    // export default helpers;
+    
 
     return (
     <div className="Watch">
@@ -40,14 +41,19 @@ function Watch() {
             return(
                 <>
                     <div className="container">
-                        {/* //img  */}
+                    
+                        <div className="duration_container">
+                          {timeHelper(content.attributes.duration)}
+                        </div>
+
+
                         <img 
                         className='img-container' 
                         src={content.attributes.cover_url} 
                         alt={content.attributes.title} 
                         onClick={(e)=>window.location.href = content.attributes.web_url}/>
 
-                        {/* premier */}
+
                         {content.attributes.is_premier ? (
                             <div 
                             key={`image-${idx}`}
@@ -58,17 +64,27 @@ function Watch() {
                             </div>
                         ) : null}
 
-                        {/* judul */}
+                        
                         <div className="title-container">
                             {content.attributes.title}
                         </div>
-                        {/* content duration */}
-                        <div className="duration-container">
-                            {timeHelper(content.attributes.duration)}
+                        
+                        <div className='content-title'>
+                            {content.attributes.alt_title}
                         </div>
-                        {/* watch- duration */}
-                        <div className="watch-duration">
-                            {content.attributes.watch_duration}
+                        
+                        
+                        
+                        <div 
+                        className="progressBar-container" data-testid='progressBar-test'>
+                            <div 
+                            className="progressBar-value"
+                                style={
+                                    {"width":(content.attributes.watch_duration /content.attributes.duration * 100)+'%'}
+                                }
+                            >
+                            </div>
+                            
                         </div>
                     </div> 
                 </>
@@ -113,10 +129,10 @@ export function timeHelper(duration){
         (duration = `${padTo2Digits(hour)}:${padTo2Digits(minute)}:${padTo2Digits(seconds)}`)
 }
 
-export function watchDurationHelper(watchDuration){
+export function watchDurationHelper(watchDuration, duration){
     // calculated from watch_duration/duration * 100%
     return(
-       watchDuration / duration 
+       watchDuration / duration * 100
     )
     
 }

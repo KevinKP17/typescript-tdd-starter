@@ -3,7 +3,6 @@ import React from 'react';
 import Watch from "./Watch" 
 import watchData from "./watchData"
 import { initialize, mswDecorator } from 'msw-storybook-addon';
-import { landscape } from '../landscape-exercise/Landscape.stories';
 
 initialize()
 
