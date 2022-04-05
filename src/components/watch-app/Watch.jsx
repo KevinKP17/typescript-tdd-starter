@@ -19,7 +19,7 @@ function Watch() {
         })
         .then(response => response.json())
         .then(response => {
-            console.error(response);
+            // console.error(response);
             const parsedData = deattribute(response)
             setData(parsedData)
             setIsLoading(false)
