@@ -37,7 +37,7 @@ function Category() {
   // oke k
  return(
            <>
-  <div  cssName="Category">
+  <div  className="Category">
        {d ata.map((dataCategory, idx) => (
           <span>{dataCategory.attributes.title}</span>
         ))}
