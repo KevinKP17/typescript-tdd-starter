@@ -11,7 +11,7 @@
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "watchData.json" }
+            "links": { "self": "./data/watchData.json" }
         },
         {
             "id": "3060",
@@ -25,7 +25,7 @@
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "Potrait.json" }
+            "links": { "self": "./data/Potrait.json" }
         }
     ],
     "included": [{
