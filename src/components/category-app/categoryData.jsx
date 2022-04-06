@@ -11,7 +11,7 @@ const categoryData = {
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "landscapeData.json" }
+            "links": { "self": "watchData.json" }
         },
         {
             "id": "3060",
@@ -25,7 +25,7 @@ const categoryData = {
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "portraitData.json" }
+            "links": { "self": "Potrait.json" }
         }
     ],
     "included": [{

@@ -1,7 +1,8 @@
 import './Category.css'
 import React, {useState, useEffect } from 'react'
-import { deattribute } from 'kitsu-core'
+import { deattribute, deserialise } from 'kitsu-core'
 import 'unfetch/polyfill'
+import { category } from './Category.stories'
 // import { response } from 'msw'
 
 function Category() {
@@ -19,8 +20,9 @@ function Category() {
         })
         .then(response => response.json())
         .then(response => {
+            // console.error(response)
+            const parsedData = deserialise(response)
             console.error(response)
-            const parsedData = deattribute(response)
             setData(parsedData)
             setIsLoading(false)
         })
@@ -30,11 +32,45 @@ function Category() {
     if(isLoading) return <p className='loading' data-testid="loading">LOADING</p>
 
     return(
+        <>
         <div className="Category">
-            <div className="heading">
-                <h1 className='heading-title'>{data.data.attributes.title}</h1>
-            </div>
+       
+          <ol>
+              {data.data.map(dataCategory => (
+                  <li>
+                      {dataCategory.attributes.title}
+                  </li>
+              ))}
+              
+          </ol>
+
+          {data.data.map((dataCategory, idx) => {
+              return(
+                  <>
+                      <div className="category" key={idx}>
+                      {/* {dataCategory.relationships.category.data['id', 'type']} */}
+                      {dataCategory.relationships.category.data.id}
+                      {dataCategory.relationships.category.data.type}
+                      </div>
+
+                        <div className="content">
+                            {dataCategory.links.self}
+                        </div>
+                  </>
+              )
+          })}
+
+          {data.included.map((dataIncluded, idex) => {
+              return(
+                  <>
+                      <div className="included" key={idex}>
+                      {dataIncluded.links.self}
+                      </div>
+                  </>
+              )
+          })}
         </div>
+        </>
     )
 }
 

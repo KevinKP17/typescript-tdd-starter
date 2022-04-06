@@ -45,7 +45,7 @@ test.only("loading expect to be render while fetching JSON file", async() => {
 test("can display components from json based on variations", async() => {
     render(<Category/>)
 
-    const category  = await screen.find
+    const category  = await screen.queryByRole('category-one')
     expect()
 })
 

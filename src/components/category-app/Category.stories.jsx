@@ -20,6 +20,6 @@ export default {
     }
 }
 
-const Template = args => <category {...args }/>
+const Template = args => <Category {...args }/>
 
 export const category = Template.bind({});
