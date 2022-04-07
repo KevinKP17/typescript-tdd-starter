@@ -1,4 +1,4 @@
-const categoryData = {
+{
     "data": [{
             "id": "2098",
             "type": "section",
@@ -11,7 +11,7 @@ const categoryData = {
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "watchData.json" }
+            "links": { "self": "./data/watchData.json" }
         },
         {
             "id": "3060",
@@ -25,7 +25,7 @@ const categoryData = {
             "relationships": {
                 "category": { "data": { "id": "55", "type": "category" } }
             },
-            "links": { "self": "Potrait.json" }
+            "links": { "self": "./data/Potrait.json" }
         }
     ],
     "included": [{
@@ -36,5 +36,3 @@ const categoryData = {
         "links": { "self": "https://www.vidio.com/categories/55" }
     }]
 }
-
-export default categoryData;
