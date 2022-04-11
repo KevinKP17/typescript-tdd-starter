@@ -37,3 +37,8 @@
     margin-right: 450px;
     margin-left: 40px;
 }
+
+.splitter {
+    display: block;
+    padding: 100px;
+}
