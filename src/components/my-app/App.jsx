@@ -6,7 +6,7 @@ import 'unfetch/polyfill'
 // import fetch from "node-fetch";
 // globalThis.fetch = fetch
 
-function App() {
+export function App() {
 
   // REACT HOOKS
   const [ data, setData ] = useState({})
