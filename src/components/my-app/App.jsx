@@ -6,7 +6,7 @@ import 'unfetch/polyfill'
 // import fetch from "node-fetch";
 // globalThis.fetch = fetch
 
-function App() {
+export function App() {
 
   // REACT HOOKS
   const [ data, setData ] = useState({})
@@ -43,10 +43,16 @@ function App() {
         return (
           < >
           <div className="container">
-            <img className="content" src={content.attributes.cover_url} alt={content.attributes.title} 
+            <img 
+            className="content" 
+            src={content.attributes.cover_url} 
+            alt={content.attributes.title} 
             onClick={(e)=>window.location.href = content.attributes.web_url} />
+           
            {content.attributes.is_premier ? (
-            <div key={`image-${idx}`} className="image-carousel">
+            <div 
+            key={`image-${idx}`} 
+            className="image-carousel">
               <div className="premier-badge">
                 <img  src={Premiericon} alt='premier-badge'/>
              </div>
